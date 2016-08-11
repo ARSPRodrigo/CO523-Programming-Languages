@@ -1,0 +1,43 @@
+
+let rec append l1 l2 = 
+	match l1 with
+	| hd::tl -> hd :: append tl l2
+	| [] -> l2
+;;
+
+let rec last_item l =
+	match l with
+	| [] -> -1
+	| hd::[] -> hd
+	| hd::tl -> last_item tl
+;;
+
+append [1] [2;3]
+
+(*
+match [1] with
+	|[] -> l2
+	|hd::tl -> hd::append tl l2
+**)
+1:: append [] [2;3]
+
+(*
+1:: match [] with
+	|[] -> l2
+	|hd::tl -> hd::append tl l2
+**)
+1::[2;3];;
+
+[1;2;3];;
+
+(*maximum of a list*)
+let rec list_max l =
+	match l with
+	| [] -> -1
+	| hd::tl -> let tlmax = list_max tl in
+				if hd>tlmax then hd else tlmax
+;;
+
+(*indentity function*)
+let identity x = x
+;;
